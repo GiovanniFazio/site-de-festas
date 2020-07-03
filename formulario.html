@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WoBite | Cadastro</title>
+    <link rel="icon" href="img/speaker.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+        html,
+        body {
+            min-height: 100%;
+            max-width: 850px;
+            margin: auto;
+            background: rgb(39, 39, 39);
+        }
+
+        body,
+        div,
+        form,
+        input,
+        select,
+        textarea,
+        p {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 14px;
+            color: rgb(192, 192, 192);
+            line-height: 22px;
+        }
+
+        h1 {
+            position: absolute;
+            margin: 0;
+            font-size: 32px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        .testbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: inherit;
+            padding: 20px;
+        }
+
+        form {
+            width: 100%;
+            padding: 20px;
+            border-radius: 6px;
+            background: rgba(129, 129, 129, 0.507);
+            box-shadow: 0 0 20px 0 #bb920a;
+        }
+
+        .banner {
+            position: relative;
+            height: 210px;
+            background-image: url("img/RightFa.gif");
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .banner::after {
+            content: "";
+            background-color: rgba(0, 0, 0, 0.582);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        input,
+        textarea,
+        select {
+            margin-bottom: 10px;
+            border: 1px solid rgb(0, 0, 0);
+            border-radius: 3px;
+        }
+
+        input {
+            width: calc(100% - 10px);
+            padding: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 7px 0;
+            background: transparent;
+        }
+
+        textarea {
+            width: calc(100% - 12px);
+            padding: 5px;
+        }
+
+        .item:hover p,
+        .item:hover i,
+        .question:hover p,
+        .question label:hover,
+        input:hover::placeholder {
+            color: #bb920a;
+        }
+
+        .item input:hover,
+        .item select:hover,
+        .item textarea:hover {
+            border: 1px solid transparent;
+            box-shadow: 0 0 6px 0 #bb920a;
+            color: #bb920a;
+        }
+
+        .item {
+            position: relative;
+            margin: 10px 0;
+        }
+
+        input[type="date"]::-webkit-inner-spin-button {
+            display: none;
+        }
+
+        .item i,
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            position: absolute;
+            font-size: 20px;
+            color: #000000;
+        }
+
+        .item i {
+            right: 1%;
+            top: 30px;
+            z-index: 1;
+        }
+
+        [type="date"]::-webkit-calendar-picker-indicator {
+            right: 0;
+            z-index: 2;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        input[type="time"]::-webkit-inner-spin-button {
+            margin: 2px 22px 0 0;
+        }
+
+        input[type=radio],
+        input.other {
+            display: none;
+        }
+
+        label.radio {
+            position: relative;
+            display: inline-block;
+            margin: 5px 20px 10px 0;
+            cursor: pointer;
+        }
+
+        .question span {
+            margin-left: 30px;
+        }
+
+        label.radio:before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+        }
+
+        #radio_5:checked~input.other {
+            display: block;
+        }
+
+        input[type=radio]:checked+label.radio:before {
+            border: 2px solid #bb920a;
+            background: #bb920a;
+        }
+
+        label.radio:after {
+            content: "";
+            position: absolute;
+            top: 7px;
+            left: 5px;
+            width: 7px;
+            height: 4px;
+            border: 3px solid #fff;
+            border-top: none;
+            border-right: none;
+            transform: rotate(-45deg);
+            opacity: 0;
+        }
+
+        input[type=radio]:checked+label:after {
+            opacity: 1;
+        }
+
+        .btn-block {
+            margin-top: auto;
+            margin-bottom: 0px;
+            text-align: center;
+        }
+
+        button {
+            width: 150px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #bb920a;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #830707;
+            transition: .79s ease;
+        }
+
+        @media (min-width: 568px) {
+
+            .name-item,
+            .city-item {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .name-item input,
+            .city-item input {
+                width: calc(50% - 20px);
+            }
+
+            .city-item select {
+                width: calc(50% - 8px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="testbox">
+        <form action="#">
+            <div class="banner">
+                <h1>Cadastro de Festas</h1>
+            </div>
+            <div class="item">
+                <label for="reasonSocial">Razão Social:*</label>
+                <input type="text" id="reasonSocial" name="usuario_reasonSocial" placeholder="Digite a sua razão social"
+                    required />
+            </div>
+            <div class="item">
+                <label for="cnpj">CNPJ:*</label>
+                <input type="text" id="cnpj" name="usuario_cnpj" placeholder="Digite o seu CNPJ" required />
+
+            </div>
+            <div class="item">
+                <label for="responsibleName">Nome do Responsavel:*</label>
+                <input type="text" id="responsibleName" name="usuario_responsibleName"
+                    placeholder="Digite o nome do responsavel" required />
+            </div>
+            <div class="item">
+                <label for="telephoneNumber">Numero do telefone:</label>
+                <input type="text" id="telephoneNumber" name="usuario_telephoneNumber"
+                    placeholder="Digite seu Telefone*" required />
+            </div>
+            <div class="item">
+                <label for="cellPhoneNumber">Numero do Celular:</label>
+                <input type="text" id="cellPhoneNumber" name="usuario_cellPhoneNumber"
+                    placeholder="Digite seu numero de celular*" required />
+            </div>
+            <div class="item">
+                <label for="name">Nome da Festa:*</label>
+                <input type="text" id="name" name="usuario_name" placeholder="Digite o nome da festa" required />
+            </div>
+            <div class="item">
+                <label for="description">Descrição:</label>
+                <textarea id="description" name="usuario_description" maxlength="250"
+                    placeholder="Digite a descrição, no maximo 250 caracter"></textarea>
+            </div>
+            <div class="item">
+                <label for="local">Local:*</label>
+                <input type="text" id="local" name="usuario_local" placeholder="Digite o local detalhadamente"
+                    required />
+                <div class="city-item">
+                    <input type="text" name="name" placeholder="Cidade" />
+                    <input type="text" name="name" placeholder="Região" />
+                </div>
+            </div>
+            <div class="item">
+                <label for="rules">Regras:*</label>
+                <textarea id="rules" name="usuario_rules" maxlength="250" placeholder="Digite as regras"
+                    required></textarea>
+            </div>
+            <div class="item">
+                <label for="link">Link:*</label>
+                <input type="text" id="link" name="usuario_link" placeholder="Digite o seu link/seu site" required />
+            </div>
+            <div class="item">
+                <p>Carregue a imagem da sua balada aqui:</p>
+                <input class="carregar--arquivo" type="file" id="imageUrl" name="arquivo-upload" accept="image/*" />
+            </div>
+            <div class="btn-block">
+                <button type="submit" href="/">ENVIAR</button>
+            </div>
+    </div>
+
+    </form>
+    </div>
+</body>
+
+</html>
